@@ -39,7 +39,11 @@ export default function ProductModal({
         description: product.description || "",
         image: product.image || "",
       });
-      setImagePreview(buildImageUrl(product.image));
+      setImagePreview(
+        product.image.startsWith("http")
+          ? product.image
+          : `https://go-shop.giaquyen.click${product.image}`,
+      );
     } else {
       setForm({ name: "", price: "", description: "", image: "" });
       setImagePreview(null);
@@ -131,7 +135,7 @@ export default function ProductModal({
                   const url = e.target.value;
                   setForm({ ...form, image: url });
                   setImagePreview(buildImageUrl(url));
-                  }}
+                }}
                 placeholder="https://example.com/image.jpg hoặc https://i.imgur.com/xxx.jpg"
               />
               {imagePreview && (
