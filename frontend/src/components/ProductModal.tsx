@@ -21,7 +21,6 @@ export default function ProductModal({
     description: "",
     image: "",
   });
-  const [image, setImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -45,16 +44,7 @@ export default function ProductModal({
       setForm({ name: "", price: "", description: "", image: "" });
       setImagePreview(null);
     }
-    setImage(null);
   }, [product]);
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImage(file);
-      setImagePreview(URL.createObjectURL(file));
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
