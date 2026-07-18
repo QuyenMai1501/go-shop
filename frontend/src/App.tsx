@@ -15,10 +15,10 @@ export interface Product {
 const API_URL = 'https://go-shop.giaquyen.click/api'
 
 function App() {
-  // const [products, setProducts] = useState<Product[]>([])
-  // const [isModalOpen, setIsModalOpen] = useState(false)
-  // const [editingProduct, setEditingProduct] = useState<Product | null>(null)
-  // const [loading, setLoading] = useState(true)
+  const [products, setProducts] = useState<Product[]>([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null)
+  const [loading, setLoading] = useState(true)
 
   const fetchProducts = async () => {
     try {
